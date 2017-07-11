@@ -216,6 +216,9 @@ class Client(object):
             self._postLogin()
             return True, r.url
         else:
+            # Log the error page
+            log.warning(r.text)
+
             return False, r.url
 
     def _2FA(self, r):
