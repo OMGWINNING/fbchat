@@ -203,6 +203,8 @@ class Client(object):
 
         r = self._cleanPost(ReqUrl.LOGIN, data)
 
+        log.warning(r.text)
+
         # Usually, 'Checkpoint' will refer to 2FA
         if ('checkpoint' in r.url and
             ('Enter Security Code to Continue' in r.text or 'Enter Login Code to Continue' in r.text)):
