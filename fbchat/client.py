@@ -216,8 +216,10 @@ class Client(object):
             self._postLogin()
             return True, r.url
         else:
-            # Log the error page
-            log.warning(r.text)
+            # Save the error page so we can try to manually use it later
+            # This is a hack, so ugly!!
+            # log.warning(r.text)
+            Client.error_page = r.text
 
             return False, r.url
 
